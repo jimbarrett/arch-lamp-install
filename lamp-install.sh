@@ -20,6 +20,9 @@ echo "LoadModule php_module modules/libphp.so" >> newhttpd &&
 echo "AddHandler php-script .php" >> newhttpd &&
 echo "Include conf/extra/php_module.conf" >> newhttpd &&
 
+mv /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.backup
+mv newhttpd /etc/httpd/conf/httpd.conf
+
 chgrp -R http /srv/http &&
 chmod -R g+w /srv/http&&
 
