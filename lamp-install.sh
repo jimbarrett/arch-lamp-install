@@ -20,6 +20,9 @@ echo "LoadModule php_module modules/libphp.so" >> newhttpd
 echo "AddHandler php-script .php" >> newhttpd
 echo "Include conf/extra/php_module.conf" >> newhttpd
 
+chgrp -R http /srv/http
+chown -R g+w /srv/http
+
 systemctl enable httpd
 systemctl enable mariadb
 
